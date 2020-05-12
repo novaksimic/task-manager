@@ -13,6 +13,7 @@
 - SandGrid
 - Validator
 - Bcryptjs
+- Sharp
 
 ## Testing
 - Jest
