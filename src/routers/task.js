@@ -1,10 +1,10 @@
 const express = require('express')
 const Task = require('../models/task')
 const auth = require('../middleware/auth')
+
 const router = new express.Router()
 
 router.post('/tasks', auth, async (req, res) => {
-   // const task = new Task(req.body)
     const task = new Task({ 
         ...req.body,
         owner: req.user._id
@@ -17,9 +17,6 @@ router.post('/tasks', auth, async (req, res) => {
     }
 })
 
-// GET /tasks?completed=false
-// GET /tasks?limit=10&skip=0
-// GET /tasks?sortBy=createdAt:desc
 router.get('/tasks', auth, async (req, res) => {
     const match = {}
     const sort = {}
